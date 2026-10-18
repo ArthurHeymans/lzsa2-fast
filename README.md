@@ -17,8 +17,8 @@ per-stage medians over 7 passes on one core, built with gcc `-O2
 
 | decoder | Intel N100 | Core i5-8350U | code |
 |---|---:|---:|---:|
-| upstream `lzsa_decompress_inmem` | 7.08 ms | 7.85 ms | 1.1 KB |
-| lzsa2-fast | **6.39 ms** (−10%) | **6.89 ms** (−12%) | 1.9 KB |
+| upstream `lzsa_decompress_inmem` | 7.08 ms | 7.82 ms | 1.1 KB |
+| lzsa2-fast | **6.39 ms** (−10%) | **6.86 ms** (−12%) | 1.9 KB |
 
 coreboot's current LZSA2 decoder runs at upstream speed (6.52 vs 6.60 ms in a
 second harness, where lzsa2-fast takes 6.07 ms).
