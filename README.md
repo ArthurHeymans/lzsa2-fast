@@ -12,13 +12,13 @@ was tuned while comparing firmware decompressors for coreboot.
 
 Corpus: 28 coreboot stages (romstage, ramstage and postcar from 10 boards),
 3,646,560 bytes, 1,795,384 bytes as LZSA2. Decode time is the sum of
-per-stage medians on an Intel N100 core, built with gcc `-O2
+per-stage medians over 7 passes on one core, built with gcc `-O2
 -march=x86-64-v2`. Code size is `.text + .rodata` at x86-64 `-Os`.
 
-| decoder | decode | code |
-|---|---:|---:|
-| upstream `lzsa_decompress_inmem` | 7.06 ms | 1.1 KB |
-| lzsa2-fast | **6.36 ms** | 1.9 KB |
+| decoder | Intel N100 | Core i5-8350U | code |
+|---|---:|---:|---:|
+| upstream `lzsa_decompress_inmem` | 7.08 ms | 7.85 ms | 1.1 KB |
+| lzsa2-fast | **6.39 ms** (−10%) | **6.89 ms** (−12%) | 1.9 KB |
 
 coreboot's current LZSA2 decoder runs at upstream speed (6.52 vs 6.60 ms in a
 second harness, where lzsa2-fast takes 6.07 ms).
